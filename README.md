@@ -1,7 +1,7 @@
 ## Chat-Clear
 
 [![License](https://img.shields.io/github/license/R_Matrix/Chat-Clear.svg)](http://www.gnu.org/licenses/lgpl-3.0.html)
-[![workflow](https://github.com/R_Matrix/Chat-Clear/actions/workflows/gradle.yml/badge.svg)](https://github.com/Fallen-Breath/fabric-mod-template/actions/workflows/gradle.yml)
+[![workflow](https://github.com/R_Matrix/Chat-Clear/actions/workflows/gradle.yml/badge.svg)](https://github.com/R_Matrix/Chat-Clear/actions/workflows/gradle.yml)
 
 A Client Mod!
 

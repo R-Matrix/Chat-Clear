@@ -70,7 +70,7 @@ dependencies {
 //		include(autoImplementation(fabricApi.module(it, project.fabric_api_version)))
 //	}
 
-	include autoImplementation("net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}")
+	autoImplementation("net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}")
 
 //	include(autoImplementation("me.fallenbreath:conditional-mixin-fabric:${project.conditionalmixin_version}"))
 	if (mcVersion < 12005) {

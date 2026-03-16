@@ -24,8 +24,13 @@ package me.rmatrix.chat_clear;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandManager;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback;
+import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.components.ChatComponent;
+import net.minecraft.client.player.LocalPlayer;
+import net.minecraft.network.chat.Component;
+import net.minecraft.sounds.SoundEvents;
+
 
 public class ClearChat implements ClientModInitializer {
 
@@ -34,11 +39,19 @@ public class ClearChat implements ClientModInitializer {
 
         ClientCommandRegistrationCallback.EVENT.register((dispatcher, dedicated) ->
                 dispatcher.register(
-                        ClientCommandManager.literal("clr").executes(
+                        ClientCommandManager.literal("clear-screen").executes(
                                 commandContext -> {
                                     Minecraft client = Minecraft.getInstance();
                                     ChatComponent chatHud = client.gui.getChat();
                                     chatHud.clearMessages(false);
+                                    if (client.player != null) {
+                                        LocalPlayer player = client.player;
+                                        player.playSound(SoundEvents.ARROW_HIT_PLAYER);
+                                        player.displayClientMessage(Component.literal("聊天栏已清除")
+                                                .withStyle(ChatFormatting.GOLD)
+                                                .withStyle(ChatFormatting.BOLD),
+                                                true);
+                                    }
                                     return 1;
                                 }
                         )
